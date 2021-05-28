@@ -50,7 +50,7 @@ client.on('ready', () => {
         // use them:
         
         // The default is !
-        .setDefaultPrefix('junk')
+        .setDefaultPrefix('>')
         
         // Used for the color of embeds sent by WOKCommands
         .setColor("#a04b00")
