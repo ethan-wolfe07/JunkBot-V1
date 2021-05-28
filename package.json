@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "common-tags": "^1.8.0",
-    "depcheck": "^1.4.1",
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
     "moment": "^2.29.1",
