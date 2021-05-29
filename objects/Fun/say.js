@@ -5,7 +5,6 @@ module.exports = {
     description: 'Make the bot say anything you wish. (Includes blacklisted words)',
     group: 'fun',
     minArgs: 1,
-    maxArgs: -1,
     expectedArgs: '<message>',
     callback: (message, arguments) => {
 
