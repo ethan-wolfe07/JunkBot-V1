@@ -3,11 +3,10 @@ const { MessageEmbed } = require('discord.js')
 const { JunkyardStudiosLogo } = require('../../Data/images.json')
 
 module.exports = {
-    name: 'serverinfo',
-    aliases: ['server'],
+    commands: 'serverinfo',
     description: 'Info about our server!',
-    category: 'Information',
-    callback: async ({ message }) => {
+    group: 'utility',
+    callback: async (client, message, arguments, emb) => {
         
         const botCount = message.guild.members.cache.filter(mem => mem.user.bot === true).size
 

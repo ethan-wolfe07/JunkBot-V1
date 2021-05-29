@@ -1,21 +1,20 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-    name: "avatar",
     commands: ["avatar", "av"],
     description: "Displays a user's avatar",
-    category: 'Fun',
+    group: 'fun',
     minArgs: 0,
     maxArgs: 1,
-    requiredPermissions: ["SEND_MESSAGES"],
-    callback: ({ message }) => {
-        let member = message.mentions.users.first() || message.author
-        let avatar = member.displayAvatarURL({size: 1024})
+    callback: (client, message, arguments, emb) => {
+        const member = message.mentions.users.first() || message.author
+        const avatar = member.displayAvatarURL({size: 1024})
 
         const embed = new MessageEmbed()
         .setTitle(`${member.username}'s avatar`)
         .setImage(avatar)
-        .setColor('WHITE')
-    message.channel.send(embed)
+        .setColor(emb.col.gold)
+
+        message.channel.send(embed)
 	}
 }

@@ -18,11 +18,10 @@ const flags = {
 };
 
 module.exports = {
-            name: 'userinfo',
-			aliases: ['user', 'ui'],
+            name: ['userinfo', 'ui', 'user'],
 			description: 'Displays information about a provided user or the message author.',
-			category: 'Information',
-			callback: ({ message }) => {
+			group: 'utility',
+			callback: (client, message, arguments, emb) => {
 
 				let target = message.mentions.members.first() || message.author;
 				const member = message.mentions.members.last() || message.guild.members.cache.get(target) || message.member;
@@ -35,7 +34,7 @@ module.exports = {
 		const userFlags = member.user.flags ? member.user.flags.toArray() : [];
 		const embed = new MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-			.setColor(member.displayHexColor || 'BLUE')
+			.setColor(member.displayHexColor || emb.col.gold)
 			.addField('User', [
 				`**Username:** ${member.user.username}`,
 				`**Discriminator:** ${member.user.discriminator}`,
