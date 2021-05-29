@@ -104,7 +104,7 @@ module.exports = {
         .setFooter(`Page ${page} of ${pages.length}`)
         .setThumbnail(emb.img)
 
-
+        message.reply('**I have sent you our help embed in your DMs**')
         message.author.send(helpEmbed).then(async msg => {
             await msg.react('◀') //⏩⏪
             await msg.react('▶')
