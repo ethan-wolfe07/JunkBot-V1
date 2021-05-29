@@ -10,14 +10,6 @@ module.exports.prefix = '>' //Server prefix
 
 const handler = require('./objects/run-handler')
 
-client.user.setPresence({
-    status: 'idle',
-    activity: {
-        'name': 'Junkyard members',
-        'type': 'WATCHING'
-    }
-})
-
 // client.on('ready', () => {
 
 //     handler.run(client)
@@ -77,6 +69,13 @@ client.on('ready', async r => {
     console.log(`${client.user.username} is now ready!`)
     handler.run(client)
 
+    client.user.setPresence({
+    status: 'idle',
+    activity: {
+        'name': 'Junkyard members',
+        'type': 'WATCHING'
+        }
+    })
 })
 
 
