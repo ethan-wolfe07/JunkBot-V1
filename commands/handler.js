@@ -246,7 +246,8 @@ module.exports = async (client, commandOptions) => {
                     col: {
                         gold: "#ffd700",
                         JDS: "#a04b00",
-                    }, //Color - For the embed
+                    },
+                    logo: "https://cdn.discordapp.com/attachments/782634444028772354/826839413153464340/JunkyardStudiosLogo.jpg" //Color - For the embed
                 }
 
                 //Run the code

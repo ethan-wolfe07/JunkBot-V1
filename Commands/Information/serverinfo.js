@@ -1,6 +1,4 @@
-const { JDS_Color } = require('../../Data/colors.json')
 const { MessageEmbed } = require('discord.js')
-const { JunkyardStudiosLogo } = require('../../Data/images.json')
 
 module.exports = {
     commands: 'serverinfo',
@@ -48,7 +46,7 @@ module.exports = {
             { name: '\u200b', value: '\u200b', inline: true},
             { name: `Role count [${message.guild.roles.cache.size - 1}]`, value: roles, inline: true }
         ])
-        .setThumbnail(JunkyardStudiosLogo)
+        .setThumbnail(emb.logo)
         .setTimestamp()
     message.channel.send(serverInfoEmbed)
     }

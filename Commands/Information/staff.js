@@ -1,4 +1,3 @@
-const { JDS_Color } = require('../../Data/colors.json')
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {

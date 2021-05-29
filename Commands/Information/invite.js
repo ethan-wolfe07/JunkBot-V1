@@ -1,5 +1,4 @@
 const Discord = require('discord.js')
-const { Gold_Color } = require('../../Data/colors.json')
 const { JunkyardStudiosLogo } = require('../../Data/images.json')
 
 module.exports = {
