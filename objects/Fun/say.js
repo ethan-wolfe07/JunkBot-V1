@@ -1,4 +1,4 @@
-const { blacklistedWords } = require('../../Data/blacklistedWords.json')
+const { blacklistedWords } = require('../../Data/blacklisted-words.json')
 
 module.exports = {
     commands: ['say'],
