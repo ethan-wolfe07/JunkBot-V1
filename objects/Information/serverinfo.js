@@ -36,7 +36,7 @@ module.exports = {
         const serverInfoEmbed = new MessageEmbed()
         .setTitle('Server info for the Junkyard Discord')
         .setDescription('Here is a little info about our Junkyard Server')
-        .setColor(JDS_Color)
+        .setColor(emb.col.JDS)
         .addFields([
             { name: 'Server Owner', value: `The owner of this server is ${message.guild.owner.user.tag}.`, inline: true },
             { name: 'Member Count', value: `There are a total of ${message.guild.memberCount} members!`, inline: true },
