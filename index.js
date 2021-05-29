@@ -8,7 +8,7 @@ const client = new DiscordJS.Client({
 
 module.exports.prefix = '>' //Server prefix
 
-const handler = require('./commands/run-handler')
+const handler = require('./objects/run-handler')
 
 // client.on('ready', () => {
 
