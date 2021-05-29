@@ -63,8 +63,6 @@ const handler = require('./objects/run-handler')
 //         .setMongoPath(process.env.MONGO_URI)
 // })
 
-
-
 client.on('ready', async r => {
     console.log(`${client.user.username} is now ready!`)
     handler.run(client)
@@ -77,13 +75,6 @@ client.on('ready', async r => {
         }
     })
 })
-
-
-
-
-
-
-
 
 // HAD TO COMMENT OUT THE FRAMEWORK IN ORDER TO USE OUR NEW CUSTOM HANDLER
 
