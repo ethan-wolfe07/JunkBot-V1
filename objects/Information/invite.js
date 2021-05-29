@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const { JunkyardStudiosLogo } = require('../../Data/images.json')
+const JunkyardStudiosLogo = 'https://cdn.discordapp.com/attachments/782634444028772354/826839413153464340/JunkyardStudiosLogo.jpg'
 
 module.exports = {
     commands: 'invite',
