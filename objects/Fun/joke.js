@@ -4,7 +4,7 @@ module.exports = {
     commands: ['dadjoke', 'dj'],
     description: 'Tells you a random joke!',
     group: 'fun',
-    callback: (message) => {
+    callback: (client, message, arguments, emb) => {
 
         giveMeAJoke.getRandomDadJoke(function(joke) {
             message.channel.send(joke)

@@ -7,7 +7,7 @@ module.exports = {
     minArgs: 1,
     delmsg: 0,
     expectedArgs: '<message>',
-    callback: (message, arguments, emb) => {
+    callback: (client, message, arguments, emb) => {
 
 
         for(const c in blacklistedWords) {

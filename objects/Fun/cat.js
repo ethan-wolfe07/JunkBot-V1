@@ -6,7 +6,7 @@ module.exports = {
     description: 'Shows a picture from the r/catpics subreddit',
     group: 'fun',
     permissions: ['SEND_MESSAGES'],
-    callback: (message, emb) => {
+    callback: (client, message, arguments, emb) => {
 		const embed = new MessageEmbed()
         got('https://www.reddit.com/r/catpics/random/.json').then(response => {
             let content = JSON.parse(response.body);

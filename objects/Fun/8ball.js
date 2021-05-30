@@ -8,7 +8,7 @@ module.exports = {
 	maxArgs: -1,
 	expectedArgs: '<question>?',
 	permissions: ["SEND_MESSAGES"],
-	callback: (message, arguments, emb) => {
+	callback: (client, message, arguments, emb) => {
 
       let responses = [
 		'Maybe.',
