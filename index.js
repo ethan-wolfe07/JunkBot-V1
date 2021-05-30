@@ -8,7 +8,7 @@ const client = new DiscordJS.Client({
 })
 
 const emitter = new EventEmitter()
-emitter.defaultMaxListeners = 69
+emitter.setMaxListeners(69)
 
 module.exports.prefix = '>' //Server prefix
 
