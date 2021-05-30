@@ -15,8 +15,6 @@ module.exports = {
             }
         }
 
-        let msg = arguments.slice(1).join(" ") // Putting it into one variable since they will always have at least one word
-
         let msg = arguments.slice(arguments[0]).join(" ") // Putting it into one variable since they will always have at least one word
         message.channel.send(msg) // Sending it to the same channel they are in. Change the way it works if you want.
     }
