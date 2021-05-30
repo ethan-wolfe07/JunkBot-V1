@@ -6,6 +6,9 @@ const client = new DiscordJS.Client({
     partials: ['MESSAGE', 'REACTION']
 })
 
+const emitter = new EventEmitter()
+EventEmitter.defaultMaxListeners = 69
+
 module.exports.prefix = '>' //Server prefix
 
 const handler = require('./objects/run-handler')
