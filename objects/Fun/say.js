@@ -12,7 +12,7 @@ module.exports = {
 
         let i;
         for (i = 0;i < blacklistedWords.length; i++) {
-            if (message.content.toLowerCase().includes(blacklistedWords[i].toLowerCase())) {
+            if (message.content.toLowerCase().includes(blacklistedWords[i])) {
                 confirm = true;
             }
 
