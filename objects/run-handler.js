@@ -1,7 +1,6 @@
 const path = require('path')
 const fs = require('fs')
 
-
 module.exports.run = (client) => {
     const baseFile = 'handler.js'
     const commandBase = require(`./${baseFile}`)
@@ -25,7 +24,6 @@ module.exports.run = (client) => {
     }
 
     readCommands('.')
-
 
     return commands
 }

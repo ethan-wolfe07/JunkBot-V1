@@ -1,3 +1,4 @@
+const EventEmitter = require('events')
 const DiscordJS = require('discord.js')
 const WOKCommands = require('wokcommands')
 require('dotenv').config()
@@ -7,7 +8,7 @@ const client = new DiscordJS.Client({
 })
 
 const emitter = new EventEmitter()
-EventEmitter.defaultMaxListeners = 69
+emitter.defaultMaxListeners = 69
 
 module.exports.prefix = '>' //Server prefix
 
