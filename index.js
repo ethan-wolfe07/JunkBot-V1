@@ -66,10 +66,10 @@ const handler = require('./objects/run-handler')
 //         .setColor("#a04b00")
 //         .setMongoPath(process.env.MONGO_URI)
 // })
+handler.run(client)
 
 client.on('ready', async r => {
     console.log(`${client.user.username} is now ready!`)
-    handler.run(client)
 
     client.user.setPresence({
     status: 'idle',

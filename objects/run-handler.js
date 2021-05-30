@@ -10,12 +10,10 @@ module.exports.run = (client) => {
     const readCommands = directory => {
         const files = fs.readdirSync(path.join(__dirname, directory))
         for (const file of files) {
-            const stat = fs.lstatSync(path.join(__dirname, directory, file))
-            if (stat.isDirectory()) {
-                readCommands(path.join(directory, file))
-            } else if (file !== baseFile && file !== 'run-handler.js') {
+             if (file !== baseFile && file !== 'run-handler.js') {
                 const option = require(path.join(__dirname, directory, file))
-                commands.push(option)
+                commands.push(file)
+                console.log(commands)
                 if(client) {
                     commandBase(client, option)
                 }
@@ -23,7 +21,7 @@ module.exports.run = (client) => {
         }
     }
 
-    readCommands('.')
+    ['./Information', './Fun'].forEach((folder) => readCommands(folder));
 
     return commands
 }
