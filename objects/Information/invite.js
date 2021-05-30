@@ -10,7 +10,7 @@ module.exports = {
         const discordInvite = '[Discord invite for friends](https://discord.gg/jKdC4sSWZh)'
         const robloxGroupInvite = '[Roblox invite for exclusive benefits in our games](https://www.roblox.com/groups/10186959)'
 
-        const ETFO = '[Escape The Farm  Obby](https://www.roblox.com/games/6007705126/Escape-The-Farm-Obby)'
+        const ETFO = '[Escape The Farm Obby](https://www.roblox.com/games/6007705126/Escape-The-Farm-Obby)'
 
         const inviteEmbed = new Discord.MessageEmbed()
         .setTitle('📋 Junkyard Invite List!')

@@ -1,11 +1,10 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-	commands: ['ball'],
+	commands: ['ball', '8ball'],
 	description: 'An 8ball command that will answer your questions.',
 	group: 'fun',
 	minArgs: 1,
-	maxArgs: -1,
 	expectedArgs: '<question>?',
 	permissions: ["SEND_MESSAGES"],
 	callback: (client, message, arguments, emb) => {
