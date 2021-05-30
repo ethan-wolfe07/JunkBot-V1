@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const got = require('got');
 
 module.exports = {
-    aliases: ['dogpics', 'dogs'],
+    commands: ['dogpics', 'dogs', 'dog'],
     description: 'Shows a picture from the r/DogPics subreddit',
     group: 'fun',
     permissions: ['SEND_MESSAGES'],
