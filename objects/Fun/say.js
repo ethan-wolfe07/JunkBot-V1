@@ -5,33 +5,19 @@ module.exports = {
     description: 'Make the bot say anything you wish. (Includes blacklisted words)',
     group: 'fun',
     minArgs: 1,
+    delmsg: 0,
     expectedArgs: '<message>',
-    callback: (message, arguments) => {
+    callback: (message, arguments, emb) => {
 
-        let confirm = false
 
-        let i;
-        for (i = 0;i < blacklistedWords.length; i++) {
-            if (message.content.includes(blacklistedWords[i].toLowerCase())) {
-                confirm = true;
-            }
-
-            if (confirm) {
-                message.delete()
+        for(const c in blacklistedWords) {
+            if(arguments.includes(blacklistedWords[c])) {
                 return message.channel.send('I cannot send your message as it contains words that are blacklisted!')
             }
         }
 
-        let msg;
-        let textChannel = message.mentions.channels.first()
-        message.delete()
 
-        if (textChannel) {
-            msg = arguments.slice(1).join(" ")
-            textChannel.send(msg)
-        } else {
-            msg = arguments.join(" ")
-            message.channel.send(msg)
-        }
+        let msg = arguments.slice(1).join(" ") // Putting it into one variable since they will always have at least one word
+        message.channel.send(msg) // Sending it to the same channel they are in. Change the way it works if you want.
     }
 }

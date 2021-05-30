@@ -2,7 +2,8 @@ module.exports = {
     commands: ['rps'],
     description: 'Rock, paper, scissors! Play the classic game!',
     minArgs: 1,
-    maxArgs: 1,
+    maxArgs: 2,
+    expectedArgs: '<rock/paper/scissors>',
     callback: (client, message, arguments, emb) => {
         if (!arguments[0] || arguments[0] === '') {
             message.channel.send(`What are you picking? You can only choose \`rock, paper, scissors\``)
