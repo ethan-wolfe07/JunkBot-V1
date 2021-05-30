@@ -14,11 +14,7 @@ module.exports = {
         let txt_Fun = 'FUN COMMANDS: \n\n';
         let txt_dev = 'DEVELOPER COMMANDS (Hey dev!): \n\n';
         let txt_uti = 'UTILITY COMMANDS: \n\n';
-        let txt_mod = 'MODERATION COMMANDS: \n\n'
-
-        
-        
-        
+        let txt_mod = 'MODERATION COMMANDS: \n\n'     
         
         for (const command of commands) {
             let permissions = command.permission
@@ -38,7 +34,6 @@ module.exports = {
                 if(!hasPermission) {
                     continue
                 }
-
 
             }
 
@@ -69,17 +64,11 @@ module.exports = {
                 } else if (command.group === 'moderation') {
                     txt_mod += reply
                 }
-            }
-
-
-            
+            }        
 
         }
 
-        let init = "HELP PAGE \nWelcome to the HELP page. \n\n If you have any questions about commands, ask to a developer. \nADVERTISEMENT: \n No ads today"
-
-
-
+        let init = `HELP PAGE \nWelcome to the HELP page. \n\n If you have any questions about commands, ask a developer. \nADVERTISEMENT: [Our Roblox Group](https://www.roblox.com/groups/10186959)`
 
         let pages = [init, txt_Fun, txt_uti, txt_mod, txt_dev]
         let titles = ["HELP", 'FUN', "UTILITY", "MODERATION", "DEVELOPER"]
@@ -112,11 +101,8 @@ module.exports = {
             const rightFilter = (reaction, user) => reaction.emoji.name === '▶'
             const leftFilter = (reaction, user) => reaction.emoji.name === '◀'
 
-
-
             const turnRight = msg.createReactionCollector(rightFilter, { time: (1000 * 60 * 5) })
             const turnLeft = msg.createReactionCollector(leftFilter, { time: (1000 * 60 * 5) })
-
 
             turnRight.on('collect', r => {
                 if (page === pages.length) return;
