@@ -13,7 +13,6 @@ module.exports.run = (client) => {
              if (file !== baseFile && file !== 'run-handler.js') {
                 const option = require(path.join(__dirname, directory, file))
                 commands.push(file)
-                console.log(commands)
                 if(client) {
                     commandBase(client, option)
                 }
