@@ -133,7 +133,8 @@ module.exports = {
                 }
             })
 
-            message.reply('**I have sent you our help embed in your DMs**')
+            message.channel.send('**You have mail**')
+            message.react('📥')
         })
     },
 }

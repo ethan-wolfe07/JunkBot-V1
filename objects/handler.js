@@ -252,10 +252,6 @@ module.exports = async (client, commandOptions) => {
 
                 //Run the code
                 callback(client, message, args, mainFooter)
-                // .catch(e => {
-                //     message.channel.send(`There was a problem! Check if I have permission to use this command, or this may be a bug.`)
-                //     console.log(e.message)
-                // })
 
 
                 return

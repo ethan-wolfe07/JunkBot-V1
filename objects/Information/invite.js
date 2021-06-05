@@ -16,10 +16,7 @@ module.exports = {
         .setTitle('📋 Junkyard Invite List!')
         .setDescription('Junkyard is a great place to hang out and socialize. We offer great games as well as a nice and actie community. \n\n We have friendly staff who will help with anything you need! (To access the complete staff list, use `>staff` in <#788948377458442273>)')
         .setColor(emb.col.gold)
-        .addField('Community Invite Links', [
-            discordInvite,
-            robloxGroupInvite
-        ])
+        .addField('Community Invite Links', `${discordInvite}\n${robloxGroupInvite}`)
         .addField('Our Games', [
             ETFO
         ])

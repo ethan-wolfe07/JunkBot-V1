@@ -1,6 +1,7 @@
 module.exports = {
     commands: ['rps'],
     description: 'Rock, paper, scissors! Play the classic game!',
+    group: 'fun',
     minArgs: 1,
     maxArgs: 2,
     expectedArgs: '<rock/paper/scissors>',

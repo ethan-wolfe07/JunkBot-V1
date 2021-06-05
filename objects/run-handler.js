@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-module.exports.run = (client) => {
+module.exports.run = async (client) => {
     const baseFile = 'handler.js'
     const commandBase = require(`./${baseFile}`)
 
@@ -20,7 +20,7 @@ module.exports.run = (client) => {
         }
     }
 
-    ['./Information', './Fun'].forEach((folder) => readCommands(folder));
-
+    await readCommands('.')
+    //WE DO NOT NEED THE [./, ./] BECAUSE THE BOT WILL ALREADY SCAN THEM FOR US
     return commands
 }

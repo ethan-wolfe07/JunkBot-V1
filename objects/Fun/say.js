@@ -10,7 +10,7 @@ module.exports = {
     callback: (client, message, arguments, emb) => {
 
         for(const c in blacklistedWords) {
-            if(arguments.includes(blacklistedWords[c])) {
+            if(arguments[0].toLowerCase().includes(blacklistedWords[c])) {
                 return message.channel.send('I cannot send your message as it contains words that are blacklisted!')
             }
         }
