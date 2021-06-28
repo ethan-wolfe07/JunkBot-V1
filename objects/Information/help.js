@@ -1,6 +1,7 @@
 const handler = require('../run-handler')
 const index = require('../../index');
 const { MessageEmbed } = require('discord.js');
+const { MessageButton } = require('discord-buttons');
 
 module.exports = {
     commands: ['help'],
@@ -93,8 +94,14 @@ module.exports = {
         .setFooter(`Page ${page} of ${pages.length}`)
         .setThumbnail(emb.img)
 
+
+        const dbutton = new MessageButton()
+        .setStyle('url')
+        .setURL('https://www.roblox.com/games/6007705126/Escape-The-Farm-Obby')
+        .setLabel(`Our Game (Click me!)`);
+
         
-        message.author.send(helpEmbed).then(async msg => {
+        message.author.send(helpEmbed, {embed: helpEmbed, button: dbutton}).then(async msg => {
             await msg.react('◀') //⏩⏪
             await msg.react('▶')
 

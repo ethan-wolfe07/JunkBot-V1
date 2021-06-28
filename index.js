@@ -6,6 +6,9 @@ require('dotenv').config()
 const client = new DiscordJS.Client({
     partials: ['MESSAGE', 'REACTION']
 })
+const disbut = require('discord-buttons')(client);
+
+const buttonEvent = require('./events/buttonEvent')
 
 const emitter = new EventEmitter()
 emitter.setMaxListeners(69)
@@ -70,6 +73,7 @@ handler.run(client)
 
 client.on('ready', async r => {
     console.log(`${client.user.username} is now ready!`)
+    buttonEvent(client)
 
     client.user.setPresence({
     status: 'idle',
