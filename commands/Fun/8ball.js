@@ -1,13 +1,11 @@
 const { MessageEmbed } = require('discord.js');
 
-module.exports = {
-	commands: ['8ball', 'ball'],
-	description: 'An 8ball command that will answer your questions.',
-	group: 'fun',
-	minArgs: 1,
-	expectedArgs: '<question>?',
-	permissions: ["SEND_MESSAGES"],
-	callback: (client, message, arguments, emb) => {
+const command = {
+	config: {
+		commandName: '8ball',
+		commandAliases: ['ball']
+	},
+	run: (_bot, message, arguments, emb) => {
 
       let responses = [
 		'Maybe.',
@@ -34,7 +32,7 @@ module.exports = {
 	  ];
 	  
 	  const result = Math.floor((Math.random() * responses.length));
-		const question = arguments.join(' ');
+		const question = args.join(' ');
 		const questionShortener = question.length > 1900 ? question.substring(0, 1800) + '...' : question;
 
 		const Usage = new MessageEmbed()

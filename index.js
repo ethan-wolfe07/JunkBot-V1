@@ -1,75 +1,30 @@
-const EventEmitter = require('events')
-const DiscordJS = require('discord.js')
-const WOKCommands = require('wokcommands')
-require('dotenv').config()
+/* Importing dependencies */
+const { Client, Collection } = require('discord.js');
+const { config } = require('dotenv');
 
-const client = new DiscordJS.Client({
-    partials: ['MESSAGE', 'REACTION']
-})
+/* Set up the config for .env to work */
+config();
+
+/* Initiating a new bot client */
+const bot = new Client({});
+
+/* Creating a new collection for commands + aliases */
+bot.commands = new Collection();
+bot.aliases = new Collection();
+
+['commands', 'aliases'].forEach((collection) => {
+	bot[collection] = new Collection();
+});
+
+/* For the load-commands and load-events file, pass the bot variable so it can be used in the files */
+['load-commands', 'load-events'].forEach((handlerFile) => require(`./handlers/${handlerFile}.js`)(bot));
+
+/* Logging into the bot with a Discord token */
+bot.login(process.env.DISCORD_TOKEN);
+
+
 const disbut = require('discord-buttons')(client);
-
-const buttonEvent = require('./events/buttonEvent')
-
-const emitter = new EventEmitter()
-emitter.setMaxListeners(69)
-
-module.exports.prefix = '>' //Server prefix
-
-const handler = require('./objects/run-handler')
-
-// client.on('ready', () => {
-
-//     handler.run(client)
-
-//     new WOKCommands(client, {
-
-//         commandsDir: 'Commands',
-//         featuresDir: 'Features',
-//         messagesPath: '',
-//         showWarns: true,
-
-//         del: -1,
-        
-//         defaultLangauge: "english",
-//         ignoreBots: false,
-        
-//         // Various options for your MongoDB database connection
-//         dbOptions: {
-//             // These 4 are the default options
-//             keepAlive: true,
-//             useNewUrlParser: true,
-//             useUnifiedTopology: true,
-//             useFindAndModify: false,
-//         },
-        
-//         // What server/guild IDs are used for testing only commands & features
-//         // Can be a single string if there is only 1 ID
-//         testServers: ['ID1', 'ID2', 'ID3'],
-        
-//         // What built-in commands should be disabled.
-//         // Note that you can overwrite a command as well by using
-//         // the same name as the command file name.
-//         disabledDefaultCommands: [
-//             'help'
-//             // 'command',
-//             // 'language',
-//             // 'prefix',
-//             // 'requiredrole'
-//         ]
-//     })
-//         // Here are some additional methods that you can chain
-//         // onto the contrustor call. These will eventually be
-//         // merged into the above object, but for now you can
-//         // use them:
-        
-//         // The default is !
-//         .setDefaultPrefix('>')
-        
-//         // Used for the color of embeds sent by WOKCommands
-//         .setColor("#a04b00")
-//         .setMongoPath(process.env.MONGO_URI)
-// })
-handler.run(client)
+const buttonEvent = require('./events/bot/buttonEvent')
 
 client.on('ready', async r => {
     console.log(`${client.user.username} is now ready!`)
@@ -83,7 +38,5 @@ client.on('ready', async r => {
         }
     })
 })
-
-// HAD TO COMMENT OUT THE FRAMEWORK IN ORDER TO USE OUR NEW CUSTOM HANDLER
 
 client.login(process.env.TOKEN)
