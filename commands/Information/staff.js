@@ -1,10 +1,12 @@
 const { MessageEmbed } = require('discord.js')
+const { JDS_Color } = require('../../Data/colors.json')
 
-module.exports = {
-    commands: ['staff', 'currentstaff', 'jdsstaff'],
-    description: 'A list of all of the current Junkyard staff',
-    group: 'utility',
-    callback: async (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'staff',
+        commandAliases: ['currentstaff', 'jdsstaff']
+    },
+    run: (bot, message, arguments) => {
 
         const ProjectManagerMembers = message.guild.roles.cache.get('833760959179915285').members.map(m=>m.user).join('\n') || 'No staff members'
         const ManagmentMembers = message.guild.roles.cache.get('826808108286083074').members.map(m=>m.user).join('\n') || 'No staff members'
@@ -18,7 +20,7 @@ module.exports = {
         const staffEmbed = new MessageEmbed()
         .setTitle('Current Staff of Junkyard')
         .setDescription(`This is a list of all the current staff in Junkyard \n These members are official staff listed with the ${staff} role.`)
-        .setColor(emb.col.JDS)
+        .setColor(JDS_Color)
         .addFields([
             { name: '📋 Project Manager', value: `${ProjectManagerMembers}`, inline: true },
             { name: '⚒️ Management', value: `${ManagmentMembers}`, inline: true },
@@ -29,5 +31,7 @@ module.exports = {
         ])
 
         message.channel.send(staffEmbed)
-        }
-    }
+        },
+    };
+
+module.exports = command;

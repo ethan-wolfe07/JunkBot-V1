@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const { JDS_Color } = require('../../Data/colors.json')
 const moment = require('moment');
 
 const flags = {
@@ -17,11 +18,12 @@ const flags = {
 	VERIFIED_DEVELOPER: 'Verified Bot Developer'
 };
 
-module.exports = {
-            name: ['userinfo', 'ui', 'user'],
-			description: 'Displays information about a provided user or the message author.',
-			group: 'utility',
-			callback: (client, message, arguments, emb) => {
+const command = {
+	config: {
+		commandName: 'userinfo',
+		commandAlises: ['ui', 'user']
+	},
+			run: (bot, message, arguments) => {
 
 				let target = message.mentions.members.first() || message.author;
 				const member = message.mentions.members.last() || message.guild.members.cache.get(target) || message.member;
@@ -34,7 +36,7 @@ module.exports = {
 		const userFlags = member.user.flags ? member.user.flags.toArray() : [];
 		const embed = new MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
-			.setColor(member.displayHexColor || emb.col.gold)
+			.setColor(member.displayHexColor || JDS_Color)
 			.addField('User', [
 				`**Username:** ${member.user.username}`,
 				`**Discriminator:** ${member.user.discriminator}`,
@@ -53,6 +55,7 @@ module.exports = {
 				`\u200b`
 			]);
 		return message.channel.send(embed);
-	}
-
+	},
 };
+
+module.exports = command;

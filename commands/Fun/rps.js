@@ -1,11 +1,8 @@
-module.exports = {
-    commands: ['rps'],
-    description: 'Rock, paper, scissors! Play the classic game!',
-    group: 'fun',
-    minArgs: 1,
-    maxArgs: 2,
-    expectedArgs: '<rock/paper/scissors>',
-    callback: (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'rps'
+    },
+    run: (bot, message, arguments) => {
         if (!arguments[0] || arguments[0] === '') {
             message.channel.send(`What are you picking? You can only choose \`rock, paper, scissors\``)
             return
@@ -58,4 +55,6 @@ module.exports = {
             message.channel.send(`This choice is invalid. Choose between \`${options}\``)
         }
     },
-}
+};
+
+module.exports = command;

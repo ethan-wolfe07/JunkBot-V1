@@ -1,11 +1,12 @@
 const { MessageEmbed } = require('discord.js');
+const { JDS_Color } = require('../../Data/colors.json')
 
 const command = {
 	config: {
 		commandName: '8ball',
 		commandAliases: ['ball']
 	},
-	run: (_bot, message, arguments, emb) => {
+	run: (bot, message, arguments) => {
 
       let responses = [
 		'Maybe.',
@@ -32,7 +33,7 @@ const command = {
 	  ];
 	  
 	  const result = Math.floor((Math.random() * responses.length));
-		const question = args.join(' ');
+		const question = arguments.join(' ');
 		const questionShortener = question.length > 1900 ? question.substring(0, 1800) + '...' : question;
 
 		const Usage = new MessageEmbed()
@@ -50,8 +51,10 @@ const command = {
 			.setDescription(`Question\n**${questionShortener}**\n\nResponse\n**${responses[result]}**`)
 			.setFooter(`Asked by ${message.author.tag}`, message.author.displayAvatarURL())
 			.setTimestamp()
-			.setColor(member.displayHexColor || emb.col.JDS);
+			.setColor(member.displayHexColor || JDS_Color);
 
 		message.channel.send(ballembed);
-    	}
-}
+    	},
+};
+
+module.exports = command;

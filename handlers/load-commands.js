@@ -10,14 +10,14 @@ module.exports = (bot) => {
 
         /* Get all commands in the folder that end with the .js prefix, if no commands are in the folder, error in the console */
 		try {
-			commands = readdirSync(`${__dirname}/../commands/${directories}/`).filter((directoryFile) => directoryFile.endsWith('.js'));
+			commands = readdirSync(`${__dirname}/../Commands/${directories}/`).filter((directoryFile) => directoryFile.endsWith('.js'));
 		} catch {
 			return console.error(`ERROR! The command folder "${directories}" couldn't be loaded.\nERROR! Please ensure a file is added in it to be loaded.`);
 		}
 
         /* For each command in the folder */
 		for (const commandFile of commands) {
-			const command = require(`${__dirname}/../commands/${directories}/${commandFile}`);
+			const command = require(`${__dirname}/../Commands/${directories}/${commandFile}`);
 
             /* If the command has no config, give an error in the console */
 			if (!command.config) return console.error(`ERROR! The command file "${commandFile}" couldn't be loaded.\nERROR! Please ensure the config options are added for it to be loaded.`);

@@ -22,15 +22,10 @@ bot.aliases = new Collection();
 /* Logging into the bot with a Discord token */
 bot.login(process.env.DISCORD_TOKEN);
 
+bot.on('ready', async r => {
+    console.log(`${bot.user.username} is now ready!`)
 
-const disbut = require('discord-buttons')(client);
-const buttonEvent = require('./events/bot/buttonEvent')
-
-client.on('ready', async r => {
-    console.log(`${client.user.username} is now ready!`)
-    buttonEvent(client)
-
-    client.user.setPresence({
+    bot.user.setPresence({
     status: 'idle',
     activity: {
         'name': 'Junkyard members',
@@ -39,4 +34,4 @@ client.on('ready', async r => {
     })
 })
 
-client.login(process.env.TOKEN)
+bot.login(process.env.TOKEN)

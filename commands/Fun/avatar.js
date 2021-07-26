@@ -1,20 +1,22 @@
 const { MessageEmbed } = require('discord.js');
+const { Gold_Color } = require('../../Data/colors.json')
 
-module.exports = {
-    commands: ["avatar", "av"],
-    description: "Displays a user's avatar",
-    group: 'fun',
-    minArgs: 0,
-    maxArgs: 1,
-    callback: (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'avatar',
+        commandAliases: ['av']
+    },
+    run: (bot, message, arguments) => {
         const member = message.mentions.users.first() || message.author
         const avatar = member.displayAvatarURL({size: 1024})
 
         const embed = new MessageEmbed()
         .setTitle(`${member.username}'s avatar`)
         .setImage(avatar)
-        .setColor(emb.col.gold)
+        .setColor(Gold_Color)
 
         message.channel.send(embed)
-	}
-}
+    },
+};
+
+module.exports = command;

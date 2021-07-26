@@ -10,14 +10,14 @@ module.exports = (bot) => {
 
          /* Get all events in the folder that end with the .js prefix, if no events are in the folder, error in the console */
 		try {
-			events = readdirSync(`${__dirname}/../events/${directories}/`).filter((directoryFile) => directoryFile.endsWith('.js'));
+			events = readdirSync(`${__dirname}/../Events/${directories}/`).filter((directoryFile) => directoryFile.endsWith('.js'));
 		} catch {
 			return console.error(`ERROR! The event folder "${directories}" couldn't be loaded.\nERROR! Please ensure a file is added in it to be loaded.`);
 		}
 
          /* For each event in the folder */
 		for (const eventFile of events) {
-			const event = require(`${__dirname}/../events/${directories}/${eventFile}`);
+			const event = require(`${__dirname}/../Events/${directories}/${eventFile}`);
 			const eventName = eventFile.split('.')[0];
 
              /* If unable to do e.g. bot.on('ready', (bot, etc) => {}) then error in the console, basically checks to make sure the event name actually exists */

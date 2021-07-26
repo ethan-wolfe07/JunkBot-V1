@@ -1,13 +1,10 @@
 const { blacklistedWords } = require('../../Data/blacklisted-words.json')
 
-module.exports = {
-    commands: ['say'],
-    description: 'Make the bot say anything you wish. (Includes blacklisted words)',
-    group: 'fun',
-    minArgs: 1,
-    delmsg: 0,
-    expectedArgs: '<message>',
-    callback: (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'say'
+    },
+    run: (bot, message, arguments) => {
 
         for(const c in blacklistedWords) {
             if(arguments[0].toLowerCase().includes(blacklistedWords[c])) {
@@ -17,5 +14,7 @@ module.exports = {
 
         let msg = arguments.slice(arguments[0]).join(" ") // Putting it into one variable since they will always have at least one word
         message.channel.send(msg) // Sending it to the same channel they are in. Change the way it works if you want.
-    }
-}
+    },
+};
+
+module.exports = command;

@@ -1,13 +1,16 @@
 const giveMeAJoke = require('discord-jokes')
 
-module.exports = {
-    commands: ['dadjoke', 'dj'],
-    description: 'Tells you a random joke!',
-    group: 'fun',
-    callback: (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'joke',
+        commandAliases: ['dadjoke', 'dj']
+    },
+    run: (bot, message, arguments) => {
 
         giveMeAJoke.getRandomDadJoke(function(joke) {
             message.channel.send(joke)
         })
-    }
-}
+    },
+};
+
+module.exports = command;

@@ -1,15 +1,13 @@
-const handler = require('../run-handler')
-const index = require('../../index');
 const { MessageEmbed } = require('discord.js');
+const index = require('../../index');
 const { MessageButton } = require('discord-buttons');
 
-module.exports = {
-    commands: ['help'],
-    description: 'Displays all of the commands in the bot',
-    group: 'utility',
-    minArgs: 0,
-    maxArgs: 0,
-    callback: async (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'help',
+        commandAliases: ['helpme']
+    },
+    run: async (bot, message, arguments) => {
         const commands = await handler.run()
 
         let txt_Fun = 'FUN COMMANDS: \n\n';
@@ -144,4 +142,6 @@ module.exports = {
             message.react('📥')
         })
     },
-}
+};
+
+module.exports = command;

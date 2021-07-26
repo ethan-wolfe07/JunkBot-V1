@@ -1,12 +1,13 @@
 const { MessageEmbed } = require('discord.js');
+const { Gold_Color } = require('../../Data/colors.json')
 const got = require('got');
 
-module.exports = {
-    commands: ['cat', 'catpics', 'cats'],
-    description: 'Shows a picture from the r/catpics subreddit',
-    group: 'fun',
-    permissions: ['SEND_MESSAGES'],
-    callback: (client, message, arguments, emb) => {
+const command = {
+        config: {
+            commandName: 'cat',
+            commandAliases: ['catpics', 'cats']
+        },
+    run: (bot, message, arguments) => {
 		const embed = new MessageEmbed()
         got('https://www.reddit.com/r/catpics/random/.json').then(response => {
             let content = JSON.parse(response.body);
@@ -15,9 +16,10 @@ module.exports = {
             let memeImage = content[0].data.children[0].data.url;
             embed.setURL(`${memeUrl}`)
             embed.setImage(memeImage)
-            embed.setColor(emb.col.gold)
+            embed.setColor(Gold_Color)
 		message.channel.send(embed);
 		})
-	}
-
+	},
 };
+
+module.exports = command;

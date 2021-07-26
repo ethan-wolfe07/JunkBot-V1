@@ -1,10 +1,13 @@
 const { MessageEmbed } = require('discord.js')
+const { JDS_Color } = require('../../Data/colors.json')
+const JunkyardStudiosLogo = 'https://cdn.discordapp.com/attachments/782634444028772354/826839413153464340/JunkyardStudiosLogo.jpg'
 
-module.exports = {
-    commands: 'serverinfo',
-    description: 'Info about our server!',
-    group: 'utility',
-    callback: async (client, message, arguments, emb) => {
+const command = {
+    config: {
+        commandName: 'serverinfo',
+        commandAliases: ['si', 'server']
+    },
+    run: async (bot, message, arguments) => {
         
         const botCount = message.guild.members.cache.filter(mem => mem.user.bot === true).size
 
@@ -36,7 +39,7 @@ module.exports = {
         const serverInfoEmbed = new MessageEmbed()
         .setTitle('Server info for the Junkyard Discord')
         .setDescription('Here is a little info about our Junkyard Server')
-        .setColor(emb.col.JDS)
+        .setColor(JDS_Color)
         .addFields([
             { name: 'Server Owner', value: `The owner of this server is ${message.guild.owner.user.tag}.`, inline: true },
             { name: 'Member Count', value: `There are a total of ${message.guild.memberCount} members!`, inline: true },
@@ -46,8 +49,10 @@ module.exports = {
             { name: '\u200b', value: '\u200b', inline: true},
             { name: `Role count [${message.guild.roles.cache.size - 1}]`, value: roles, inline: true }
         ])
-        .setThumbnail(emb.logo)
+        .setThumbnail(JunkyardStudiosLogo)
         .setTimestamp()
     message.channel.send(serverInfoEmbed)
-    }
-}
+    },
+};
+
+module.exports = command;
