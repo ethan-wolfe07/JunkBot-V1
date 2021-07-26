@@ -1,13 +1,11 @@
-module.exports = (bot) => {
-    bot.on('ready', async r => {
-        console.log(`${bot.user.username} is now ready!`)
+module.exports = async (bot) => {
+	console.log(`${bot.user.username} is online!`);
     
-        bot.user.setPresence({
+    bot.user.setPresence({
         status: 'idle',
         activity: {
             'name': 'Junkyard members',
             'type': 'WATCHING'
-            }
-        })
-    })
-}
+            },
+        }).then(console.log('Status Set!'));
+};
