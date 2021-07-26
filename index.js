@@ -1,5 +1,6 @@
 /* Importing dependencies */
 const { Client, Collection } = require('discord.js');
+const noblox = require('noblox.js')
 const { config } = require('dotenv');
 
 /* Set up the config for .env to work */
@@ -7,6 +8,17 @@ config();
 
 /* Initiating a new bot client */
 const bot = new Client({});
+
+// Starting up the Roblox Bot
+async function startApp () {
+    
+    const currentUser = await noblox.setCookie(process.env.NOBLOX_KEY) 
+    console.log(`Logged in as ${currentUser.UserName} [${currentUser.UserID}]`)
+
+    const groupInfo = await noblox.getGroup(10186959)
+}
+    startApp()
+
 
 /* Creating a new collection for commands + aliases */
 bot.commands = new Collection();
