@@ -21,17 +21,3 @@ bot.aliases = new Collection();
 
 /* Logging into the bot with a Discord token */
 bot.login(process.env.DISCORD_TOKEN);
-
-bot.on('ready', async r => {
-    console.log(`${bot.user.username} is now ready!`)
-
-    bot.user.setPresence({
-    status: 'idle',
-    activity: {
-        'name': 'Junkyard members',
-        'type': 'WATCHING'
-        }
-    })
-})
-
-bot.login(process.env.TOKEN)
