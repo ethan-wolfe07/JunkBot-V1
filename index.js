@@ -1,5 +1,6 @@
 /* Importing dependencies */
 const { Client, Collection } = require('discord.js');
+const Levels = require('discord-xp')
 const noblox = require('noblox.js')
 const { config } = require('dotenv');
 
@@ -9,7 +10,7 @@ config();
 /* Initiating a new bot client */
 const bot = new Client({ intents: 32767 });
 
-// Starting up the Roblox Bot
+/* Starting up the Roblox Bot */
 async function startApp () {
     
     const currentUser = await noblox.setCookie(process.env.NOBLOX_KEY) 
@@ -19,6 +20,8 @@ async function startApp () {
 }
     startApp()
 
+/* Setting up the discord-xp module */
+Levels.setUrl(process.env.MONGO_URI) // Work in progress (will be pushed on next update)
 
 /* Creating a new collection for commands + aliases */
 bot.commands = new Collection();
