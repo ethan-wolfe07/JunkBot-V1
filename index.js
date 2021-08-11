@@ -7,7 +7,7 @@ const { config } = require('dotenv');
 config();
 
 /* Initiating a new bot client */
-const bot = new Client({});
+const bot = new Client({ intents: 32767 });
 
 // Starting up the Roblox Bot
 async function startApp () {

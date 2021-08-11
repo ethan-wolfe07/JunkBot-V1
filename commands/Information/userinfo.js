@@ -54,7 +54,7 @@ const command = {
 				`**Roles:** ${roles || 'None'}`,
 				`\u200b`
 			]);
-		return message.channel.send(embed);
+		return message.channel.send({ embeds: [embed] });
 	},
 };
 

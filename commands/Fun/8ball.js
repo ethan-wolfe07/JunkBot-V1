@@ -42,7 +42,7 @@ const command = {
 			.setFooter('SYNTAX ERROR')
 			.setColor('RED');
 
-		if (!arguments[1]) return message.channel.send(Usage);
+		if (!arguments[1]) return message.channel.send({ embeds: [Usage] });
 
 	  const member = message.author
 
@@ -53,7 +53,7 @@ const command = {
 			.setTimestamp()
 			.setColor(member.displayHexColor || JDS_Color);
 
-		message.channel.send(ballembed);
+		message.channel.send({ embeds: [ballembed] });
     	},
 };
 

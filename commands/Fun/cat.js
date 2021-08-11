@@ -17,7 +17,7 @@ const command = {
             embed.setURL(`${memeUrl}`)
             embed.setImage(memeImage)
             embed.setColor(Gold_Color)
-		message.channel.send(embed);
+		message.channel.send({ embeds: [embed] });
 		})
 	},
 };

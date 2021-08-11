@@ -51,7 +51,7 @@ const command = {
         ])
         .setThumbnail(JunkyardStudiosLogo)
         .setTimestamp()
-    message.channel.send(serverInfoEmbed)
+    message.channel.send({ embeds: [serverInfoEmbed] })
     },
 };
 

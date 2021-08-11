@@ -1,11 +1,6 @@
 module.exports = async (bot) => {
 	console.log(`${bot.user.username} is online!`);
     
-    bot.user.setPresence({
-        status: 'idle',
-        activity: {
-            'name': 'Junkyard members',
-            'type': 'WATCHING'
-            },
-        }).then(console.log('Status Set!'));
+    bot.user.setPresence({ activities: [{ name: 'Junkyard Members' }], status: 'idle' })
+    console.log('Status Set!');
 };

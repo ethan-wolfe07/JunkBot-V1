@@ -13,7 +13,7 @@ const command = {
         }
 
         let msg = arguments.slice(arguments[0]).join(" ") // Putting it into one variable since they will always have at least one word
-        message.channel.send(msg) // Sending it to the same channel they are in. Change the way it works if you want.
+        message.channel.send(msg).then(message.delete()) // Sending it to the same channel they are in. Change the way it works if you want.
     },
 };
 

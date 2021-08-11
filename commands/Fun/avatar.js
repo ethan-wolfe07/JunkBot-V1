@@ -15,7 +15,7 @@ const command = {
         .setImage(avatar)
         .setColor(Gold_Color)
 
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed]})
     },
 };
 

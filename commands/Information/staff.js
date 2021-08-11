@@ -30,7 +30,7 @@ const command = {
             { name: '📚 Interns', value: `${InternMembers}`, inline: true },
         ])
 
-        message.channel.send(staffEmbed)
+        message.channel.send({ embeds: [staffEmbed] })
         },
     };
 
