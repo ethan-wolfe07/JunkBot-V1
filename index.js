@@ -21,7 +21,7 @@ async function startApp () {
     startApp()
 
 /* Setting up the discord-xp module */
-Levels.setUrl(process.env.MONGO_URI) // Work in progress (will be pushed on next update)
+// Work in progress (will be pushed on next update)
 
 /* Creating a new collection for commands + aliases */
 bot.commands = new Collection();
